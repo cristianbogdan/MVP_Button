@@ -1,0 +1,32 @@
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width",initial-scale="1">
+</head>
+<body>
+  <div id="app"></div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.4/umd/react.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.4/umd/react-dom.development.js"></script>
+<script>const h= React.createElement;</script>
+<script src="https://unpkg.com/babel-standalone/babel.js"></script>
+
+<script src="ButtonModel.js"></script>
+<script src="ButtonPresenter.js"></script>
+<script src="view/MyButtonView.js" type="text/jsx"></script>
+<script src="react/MyButton.js"></script>
+
+
+<script type="text/jsx">
+    function click(id){
+      document.getElementById(id).innerHTML="&nbsp; clicked!";
+      setTimeout(()=>document.getElementById(id).innerText="", 300);
+  }
+  ReactDOM.render(
+          <div>
+          <MyButton onClick={e=>click("myButtonClick")}>My Button</MyButton><span id="myButtonClick" style={{width:100, display: "inline-block"}}></span>
+          <button onClick={e=>click("nativeButtonClick")}>Native Button</button><span id="nativeButtonClick" style={{width:100, display: "inline-block"}}>&nbsp;</span>
+          </div>
+      , document.body.querySelector("#app"));
+</script>
+<script src="debugMouseKeyboard.js"></script>
